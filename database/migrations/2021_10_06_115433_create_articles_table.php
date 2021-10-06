@@ -20,7 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('short_description',255)->nullable();
             $table->text('description');
             $table->integer('comment_count')->default(0);
-            $table->integer('like_count')->default(0);
+            $table->integer('count_like')->default(0);
+            $table->integer('count_view')->default(0);
             $table->string('main_image_url')->nullable()->default(null);
             $table->string('main_image_short_url')->nullable()->default(null);
             $table->timestamps();

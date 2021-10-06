@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cookie;
 
 class Article extends Model
 {
@@ -39,6 +40,24 @@ class Article extends Model
     public function like()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function view(){
+        return $this->hasMany(View::class);
+    }
+
+    public function newLike(){
+
+    }
+
+    public function newView(){
+            if(Cookie::get('article_'.$this->id)) {
+                $cookie = Cookie::make('article_' . $this->id, 'value', 120);
+                $view = new View();
+                $view->save();
+                $this->view()->save($view);
+            }
+            return;
     }
 
     public function comment()

@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Jobs\CalculateArticleFields;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
+use SebastianBergmann\Environment\Console;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        Log::info("Logger work");
+        $schedule->job(new CalculateArticleFields())->everyMinute();
     }
 
     /**

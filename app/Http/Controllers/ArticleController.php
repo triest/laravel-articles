@@ -55,6 +55,7 @@ class ArticleController extends Controller
         if(!$article){
             abort(404);
         }
+        $article->newView();
 
         return view('article.view')->with(compact('article'));
     }
@@ -91,5 +92,11 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function test(){
+        $articles=Article::select(['id'])->withCount('like','view' )->first();
+        dump($articles);
+        return view('home');
     }
 }

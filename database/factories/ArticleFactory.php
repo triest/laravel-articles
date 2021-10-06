@@ -24,8 +24,9 @@ class ArticleFactory extends Factory
     {
         return [
                 'title' => $this->faker->title,
-                'description'=>$this->faker->realText(2000)
-
+                'description'=>$this->faker->realText(2000),
+                'main_image_url'=>"https://via.placeholder.com/150C/O https://placeholder.com/",
+                'main_image_short_url'=>"https://via.placeholder.com/150C/O https://placeholder.com/"
         ];
     }
 }

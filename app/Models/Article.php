@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use HasFactory,  Sluggable;
+    use HasFactory, Sluggable;
 
-
-
+    protected $appends = ['short_description'];
 
 
     /**
@@ -28,15 +27,27 @@ class Article extends Model
         ];
     }
 
-    public function like(){
+    public function getShortDescriptionAttribute()
+    {
+        if (strlen($this->description) > 100) {
+            return substr($this->description, 0, 100)."...";
+        } else {
+            return $this->description;
+        }
+    }
+
+    public function like()
+    {
         return $this->hasMany(Like::class);
     }
 
-    public function comment(){
+    public function comment()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function tag(){
+    public function tag()
+    {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 }

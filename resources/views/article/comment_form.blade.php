@@ -4,9 +4,11 @@
         <input type="hidden" name="article_id" value="{{$article_id}}">
          Тема сообщения  <br>
         <input type="text" name="subject" >  <br>
-        <textarea name="body"></textarea>
+        <textarea name="text"></textarea>
         <button type="submit" class="btn btn-primary" type="button">Comment</button>
     </form>
 
     <div class="alert alert-success" role="alert" id="success" style="display: none">Ваше сообщение успешно отправленно</div>
 </div>
+
+

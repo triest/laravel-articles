@@ -50,14 +50,15 @@ class Article extends Model
 
     }
 
-    public function newView(){
-            if(Cookie::get('article_'.$this->id)) {
-                $cookie = Cookie::make('article_' . $this->id, 'value', 120);
-                $view = new View();
-                $view->save();
-                $this->view()->save($view);
-            }
+    public function newView()
+    {
+        if (Cookie::get('article_view_' . $this->slug)) {
             return;
+        }
+        Cookie::queue('article_view_' . $this->slug, 'value', 120);
+        $view = new View();
+        $view->save();
+        $this->view()->save($view);
     }
 
     public function comment()

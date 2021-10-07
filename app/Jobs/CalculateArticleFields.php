@@ -36,7 +36,6 @@ class CalculateArticleFields implements ShouldQueue
         //
         $articles=Article::select(['id'])->withCount('like','view' )->get();
         foreach ($articles as $article){
-            Log::debug($article->like_count);
             $article->count_view=$article->view_count;
             $article->count_like=$article->like_count;
             $article->save();

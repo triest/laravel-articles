@@ -1,5 +1,5 @@
 
-$( "#comment_form").submit(function( event ) {
+$("#comment_form").submit(function( event ) {
     event.preventDefault();
     $.ajax({
         type : 'POST',
@@ -8,7 +8,6 @@ $( "#comment_form").submit(function( event ) {
         success: function (data) {
             $( "#comment_form").css("display","none")
             $( "#success").css('display','block')
-
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log("error")

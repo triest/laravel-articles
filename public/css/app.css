@@ -10004,3 +10004,25 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+#navbarSupportedContent{
+  position:absolute;
+  right: 0px;
+}
+
+
+.count_like{
+  float: right
+}
+
+.navbar{
+  color: whitesmoke;
+}
+.nav-link{
+  color: gray;
+}
+
+.active{
+   color: black;
+}
+

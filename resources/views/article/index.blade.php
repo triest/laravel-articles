@@ -4,7 +4,7 @@
     <div class="col-md-3">
         <div class="small text-muted">
             @foreach($tags as $tagItem)
-                <a href="{{route('article.tag',['tag'=>$tagItem->slug])}}" type="button" class="btn btn-dark btn-circle btn-xl"> {{$tagItem->title}}</a>
+                <a href="{{route('article.tag',['tag'=>$tagItem->slug])}}"  type="button" class="btn btn-dark btn-circle btn-xl"> {{$tagItem->title}}</a>
             @endforeach
         </div>
     </div>

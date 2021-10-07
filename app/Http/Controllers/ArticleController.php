@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TestRequest;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Services\ArticleService;
@@ -62,7 +63,9 @@ class ArticleController extends Controller
         if (!$tag) {
             abort(404);
         }
-        $articles = $tag->articles()->paginate($this->articles_per_page);
+        $articleService = new ArticleService();
+
+        $articles = $articleService->articleByTag($tag);
 
         $tagService=new TagService();
         $tags=$tagService->getTagsForMainPage();

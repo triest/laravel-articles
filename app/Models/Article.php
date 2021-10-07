@@ -78,7 +78,7 @@ class Article extends Model
 
     public function comment()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->orderBy('created_at','desc');
     }
 
     public function tag()

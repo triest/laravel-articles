@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Log;
 
 class ArticleService
 {
-        private $main_page_limit=10;
+        private $main_page_limit=6;
 
-        public function showBySlug($slug){
+        private $articles_per_page = 10;
+
+
+    public function showBySlug($slug){
             $article=Article::select(['*'])->where(['slug'=>$slug])->with('tag','comment','comment.user')->withCount('like','view' )->first();
 
             if(!$article){
@@ -25,6 +28,13 @@ class ArticleService
 
         public function forMainPage(){
             $articles=Article::select(['id','title', 'description','slug'])->orderBy('created_at','desc')->limit($this->main_page_limit)->get();
+            return $articles;
+        }
+
+        public function forArticlesPage(){
+            $articles = Article::select('id', 'title', 'description', 'slug', 'created_at','count_like','count_view')->orderBy('created_at','desc')->paginate(
+                    $this->articles_per_page
+            );
             return $articles;
         }
 

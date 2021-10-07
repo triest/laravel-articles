@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
 
-    public $articles_per_page = 10;
 
     /**
      * Display a listing of the resource.
@@ -20,10 +19,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::select('id', 'title', 'description', 'slug', 'created_at','count_like','count_view')->paginate(
-                $this->articles_per_page
-        );
-
+        $articleService=new ArticleService();
+        $articles=$articleService->forArticlesPage();
         $tagService=new TagService();
         $tags=$tagService->getTagsForMainPage();
 

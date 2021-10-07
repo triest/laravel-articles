@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleLikeRequest;
 use App\Http\Requests\CommentRequest;
 use App\Models\Article;
 use App\Models\Comment;
@@ -31,11 +32,14 @@ class LikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleLikeRequest $request)
     {
          $count=$this->likeServise->newLike($request->article_id);
-
-         return response()->json(['count'=>$count])->setStatusCode(200);
+         if($count!==false) {
+             return response()->json(['count' => $count])->setStatusCode(200);
+         }else{
+             return response()->json(['count' => $count])->setStatusCode(422);
+         }
 
     }
 

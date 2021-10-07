@@ -20,7 +20,7 @@ class CommentController extends Controller
     {
         //
         StoreComment::dispatch($request->article_id,$request->subject,$request->text)->delay(now()->addSeconds(10));
-        Log::debug('return response');
+
 
         return response()->json()->setStatusCode(200);
 

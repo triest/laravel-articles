@@ -37,9 +37,7 @@ class StoreComment implements ShouldQueue
      */
     public function handle()
     {
-        Log::debug('storeCommentJob');
         $article_servise=new ArticleService();
         $article_servise->storeComment($this->article_id,$this->subject,$this->text);
-
     }
 }

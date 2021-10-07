@@ -13,7 +13,9 @@ class LikeService
 {
     public function newLike($article_id){
         $article=Article::select(['count_like'])->where(['id'=>$article_id])->first();
-
+        if(!$article){
+            return false;
+        }
         if (Cookie::get('article_like_' . $article->slug)) {
             return $article->count_like;
         }

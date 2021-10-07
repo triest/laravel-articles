@@ -1,5 +1,6 @@
-<a href="{{route('articles.show',['article'=>$article->slug])}}"><img class="card-img-top"
-                                                                      src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
+<a href="{{route('articles.show',['article'=>$article->slug])}}">
+    <img class="card-img-top"
+         src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
                                                                       alt="..."></a>
 <div class="card-body bg-white">
     <h2 class="card-title"><a class="article_title"

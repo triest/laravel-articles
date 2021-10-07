@@ -18,7 +18,7 @@
                 @endforeach
                 <p></p>
                 <div class="pagination">
-                    {!! $articles->links() !!}
+                    {{ $articles->links('pagination.custom') }}
                 </div>
             </div>
         </div>

@@ -8,9 +8,9 @@
         <textarea name="text" placeholder="Сообщение"  cols="84" rows="4"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-dark">Отправить комментарий</button>
+    <button type="submit" class="btn btn-dark">Отправить</button>
 </form>
 
-<div class="alert alert-success" role="alert" id="success" style="display: none">Ваше сообщение успешно отправленно
+<div class="alert alert-success" role="alert" id="success" style="display: none">Ваше сообщение успешно отправлено
 </div>
 

@@ -1,9 +1,6 @@
-<div class="container mt-5 mb-5">
-
+<div class="container mb-5">
             <div class="p-2 px-4">
-
                 @include('article.comment_form',['article_id'=>$article_id])
-
                 @foreach($comments as $comment)
 
                         <div class="d-flex flex-row align-items-center commented-user">

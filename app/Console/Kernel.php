@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->job(new CalculateArticleFields())->everyTenMinutes();
+        $schedule->job(new CalculateArticleFields())->everyMinute();
     }
 
     /**

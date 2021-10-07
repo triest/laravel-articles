@@ -34,7 +34,11 @@ class CalculateArticleFields implements ShouldQueue
     {
         Log::info("Calculater work");
         //
-        $articles=Article::select(['id'])->withCount('like','view' )->get();
+        $articles=Article::select(['id'])->orWhereHas('like',function ($q){
+            $q->whereBetween('created_at',[now()->subMinutes(1), now()]);
+        })->orWhereHas('view',function ($q){
+            $q->whereBetween('created_at',[now()->subMinutes(1), now()]);
+        })->withCount('like','view' )->get();
         foreach ($articles as $article){
             $article->count_view=$article->view_count;
             $article->count_like=$article->like_count;

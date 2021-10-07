@@ -18,10 +18,7 @@ class ArticleService
 
     public function showBySlug($slug)
     {
-        $article = Article::select(['*'])->where(['slug' => $slug])->with('tag', 'comment', 'comment.user')->withCount(
-                'like',
-                'view'
-        )->first();
+        $article = Article::select(['*'])->where(['slug' => $slug])->with('tag', 'comment', 'comment.user')->first();
 
         if (!$article) {
             return null;
@@ -33,7 +30,7 @@ class ArticleService
 
     public function forMainPage()
     {
-        $articles = Article::select(['id', 'title', 'description', 'slug'])->orderBy('created_at', 'desc')->limit(
+        $articles = Article::select(['id', 'title', 'description', 'slug','count_view','count_like'])->orderBy('created_at', 'desc')->limit(
                 $this->main_page_limit
         )->get();
         return $articles;

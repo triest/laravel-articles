@@ -45,16 +45,6 @@ class ArticleController extends Controller
         return view('article.view')->with(compact('article'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
 
     public function tag($tag)

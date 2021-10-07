@@ -30,4 +30,13 @@ class CommentRequest extends FormRequest
                 'article_id' => 'required|exists:App\Models\Article,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+                'subject.required' => 'Тема обязательна',
+                'text.required' => 'Сообщение обязательно',
+                'article_id' => 'Статья не найдена',
+        ];
+    }
 }

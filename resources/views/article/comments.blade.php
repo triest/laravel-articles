@@ -1,10 +1,6 @@
 <div class="container mt-5 mb-5">
-    <div class="d-flex justify-content-center row">
-        <div class="d-flex flex-column col-md-8">
 
-            <div class="coment-bottom bg-white p-2 px-4">
-
-
+            <div class=" bg-white p-2 px-4">
 
                 @include('article.comment_form',['article_id'=>$article_id])
 
@@ -20,8 +16,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
-</div>
+
 
 @section('scripts')
     <script src="{{ asset('js/article/comment.js') }}" defer></script>

@@ -11,7 +11,7 @@ class Article extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $appends = ['short_description'];
+    protected $appends = ['short_description','count_view_beautiful','count_likes_beautiful'];
 
 
     /**
@@ -35,6 +35,21 @@ class Article extends Model
         } else {
             return $this->description;
         }
+    }
+
+    public function getCountViewBeautiful(){
+         if($this->count_view>1000){
+            return  strval($this->count_view_beautiful=$this->count_view % 1000)."K";
+         }else{
+            return  $this->count_view_beautiful=$this->count_view;
+         }
+    }
+    public function getCountLikeBeautiful(){
+         if($this->count_like>1000){
+            return  strval($this->count_likes_beautiful=$this->count_like % 1000)."K";
+         }else{
+            return  $this->count_likes_beautiful=$this->count_like;
+         }
     }
 
     public function like()

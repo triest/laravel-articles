@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ArticleService;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('main');
+        $articleService=new ArticleService();
+        $articles=$articleService->forMainPage();
+
+        return view('main')->with(compact('articles'));
     }
 }

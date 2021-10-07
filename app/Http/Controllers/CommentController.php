@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
+use App\Jobs\StoreComment;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CommentController extends Controller
 {
@@ -27,9 +29,8 @@ class CommentController extends Controller
     public function store(CommentRequest $request)
     {
         //
-        $comment=new Comment();
-        $comment->fill($request->post());
-        $comment->save();
+        StoreComment::dispatch($request->article_id,$request->subject,$request->text)->delay(now()->addSeconds(10));
+        Log::debug('return response');
 
         return response()->json()->setStatusCode(200);
 

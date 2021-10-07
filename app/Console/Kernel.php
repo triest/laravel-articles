@@ -27,8 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        Log::info("Logger work");
-        $schedule->job(new CalculateArticleFields())->everyMinute();
+        $schedule->job(new CalculateArticleFields())->everyTenMinutes();
     }
 
     /**

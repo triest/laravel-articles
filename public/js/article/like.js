@@ -5,6 +5,7 @@ $( "#new_like").click(function( event ) {
 function new_like(article_id){
 
     event.preventDefault();
+    console.log("like")
     let formData = new FormData();
     formData.append('article_id', article_id);
 
@@ -16,7 +17,7 @@ function new_like(article_id){
         contentType: false,
         success: function (data) {
             if(data.count!==undefined) {
-                document.getElementById('count_like').innerText = data.count;
+                document.getElementById('count_like_'+article_id).innerText = data.count;
             }
 
         },

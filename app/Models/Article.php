@@ -37,14 +37,14 @@ class Article extends Model
         }
     }
 
-    public function getCountViewBeautiful(){
+    public function getCountViewBeautifulAttribute(){
          if($this->count_view>1000){
             return  strval($this->count_view_beautiful=$this->count_view % 1000)."K";
          }else{
             return  $this->count_view_beautiful=$this->count_view;
          }
     }
-    public function getCountLikeBeautiful(){
+    public function getCountLikesBeautifulAttribute(){
          if($this->count_like>1000){
             return  strval($this->count_likes_beautiful=$this->count_like % 1000)."K";
          }else{

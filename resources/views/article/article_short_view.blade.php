@@ -11,7 +11,7 @@
         <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
     </svg>
     <span onclick="new_like({{$article->id}})" class="count_like">
-               <span id="count_like">
+               <span id="count_like_{{$article->id}}">
                        {{$article->count_likes_beautiful}}
                </span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart"
@@ -22,6 +22,6 @@
 </div>
 
 @section('scripts')
-    <script src="{{ asset('js/article/like.js') }}" defer></script>
+
 @endsection
 

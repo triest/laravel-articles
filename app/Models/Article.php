@@ -13,6 +13,7 @@ class Article extends Model
 
     protected $appends = ['short_description','count_view_beautiful','count_likes_beautiful'];
 
+    protected $table = "articles";
 
     /**
      * Return the sluggable configuration array for this model.

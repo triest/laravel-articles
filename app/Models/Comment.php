@@ -11,6 +11,8 @@ class Comment extends Model
 
     protected $fillable=['article_id','title','text'];
 
+    protected $table = "comments";
+
     public function article(){
         return $this->belongsTo(Article::class);
     }

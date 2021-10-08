@@ -3,12 +3,14 @@
 
 
     git clone ...
+    composer install
+    npm install
     php artisan migrate
     php artisan db:seed
     php artisan serve
     
 Запустить очереди:
-php artisan queue:work
+    `php artisan queue:work`
 
 Запустить демон:
- artisan schedule:run
+ `php artisan schedule:work`
